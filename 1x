@@ -1,3 +1,18 @@
+Days Between Transactions = 
+DATEDIFF(
+    MIN('FactSales'[SalesDate].[Day]), 
+    MAX('FactSales'[SalesDate].[Day]), 
+    DAY
+) + 1
+Sales Status = 
+IF(
+    'FactSales'[SalesAmount] > 'FactSales'[TargetSales], 
+    "High", 
+    "Low"
+)
+Total Sales Revenue = SUM('FactSales'[SalesAmount])
+Total Unique Customers = DISTINCTCOUNT('FactSales'[CustomerID])
+
 SUM(FactSales[SalesAmount])
 AVERAGE(FactSales[SalesAmount])
 MIN(FactSales[SalesAmount])
